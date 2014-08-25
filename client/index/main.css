@@ -1,7 +1,6 @@
 /* CSS declarations go here */
 
-body,
-html {
+body, html {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -56,9 +55,8 @@ svg {
     /*175 px*/
     height: 14.583em;
 }
-.plus,
-.minus {
-    height: 100px;
+.plus, .minus {
+    height: 6.5em;
     width: auto;
 }
 rect:hover {
