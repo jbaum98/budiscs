@@ -1,6 +1,14 @@
 UI.registerHelper('active_sale', function () {
     'use strict';
-    return Sales.find({
+    return Sales.findOne({
         active: true
-    }).collection.findOne();
+    });
+});
+
+
+UI.registerHelper('active_sales', function () {
+    'use strict';
+    return Sales.find({
+            active: true
+    }).count();
 });
