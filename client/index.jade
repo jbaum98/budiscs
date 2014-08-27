@@ -1,7 +1,7 @@
 head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(id="meta" name="viewport" content="width=device-width; initial-scale=1.0")
+    meta(id="meta" name="viewport" content="width=device-width; initial-scale=1.0, user-scalable=no")
     title Berkshires Ultimate Discs
     // [if lt IE 9]
       script(src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
@@ -9,7 +9,14 @@ head
     // [endif]
 
 body
+
+template(name='layout')
+    .container-fluid
+        +yield
+    footer.footer.navbar-fixed-bottom I am a footer
+    
+template(name='index')
     unless currentUser
         +welcome
-        if active_sales 
-            +new_order
+        if active_sales
+            +new_order(current_order)

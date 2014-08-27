@@ -1,0 +1,35 @@
+template(name='new_order')
+    #new_order.full.row
+        form.col-md-6#new_order_form(role='form')
+            .form-group
+                label(for='name') Name:
+                input#name.form-control(type='text', placeholder='Your name' value='#{name}')
+                input#picking_up(type='checkbox', checked='#picking_up')
+                | I will be picking up these discs
+            .form-group(style='display: none;')
+                label(for='recipient') Recipient Name:
+                input#recipient.form-control(type='text ', placeholder='The person picking up the discs' value='#{recipient}')
+            .form-group
+                label(for='bunk') Bunk:
+                input#bunk.form-control(type='text', placeholder='Your bunk' value='#{bunk}')
+        #discs.col-md-6
+            each discs
+                +disc_svg(this)
+        button.btn.btn-default(type='submit') Submit
+
+
+template(name='disc_svg')
+    .disc_container(data-index='#{index}')
+        svg.plus(width='100', height='100', xmlns='http://www.w3.org/2000/svg' preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100")
+            rect(width='90' height='90' border-radius='15' rx='10' ry='10' fill="grey")
+            text(x='46' y='75' text-anchor='middle' font-family='Arial' font-size='100px' fill='white' border-radius='15px') +
+        svg.disc(width='100', height='100', xmlns='http://www.w3.org/2000/svg' preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100")
+            circle(cx='50', cy='50', r='46', stroke='black', stroke-width='1', fill='#{color}')
+            circle(cx='50', cy='50', r='36', stroke='black', stroke-width='1', fill='none')
+            circle(cx='50', cy='50', r='33', stroke='black', stroke-width='1', fill='none')
+            circle(cx='50', cy='50', r='30', stroke='black', stroke-width='1', fill='none')
+            circle(cx='50', cy='50', r='27', stroke='black', stroke-width='1', fill='none')
+            text(x="50" y="60" text-anchor="middle" font-family="Arial" font-size="30px") #{num}
+        svg.minus(width='100', height='100', xmlns='http://www.w3.org/2000/svg' preserveAspectRatio="xMinYMin meet" viewBox="0 0 100 100")
+            rect(width='90' height='90' border-radius='15' rx='10' ry='10' fill="grey")
+            text(x='46' y='75' text-anchor='middle' font-family='Arial' font-size='100px' fill='white' border-radius='15px') -
