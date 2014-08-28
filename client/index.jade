@@ -13,10 +13,15 @@ body
 template(name='layout')
     .container-fluid
         +yield
-    footer.footer.navbar-fixed-bottom I am a footer
     
 template(name='index')
     unless currentUser
         +welcome
         if active_sales
             +new_order(current_order)
+
+template(name='footer')
+    footer.footer.navbar-fixed-bottom
+        ul
+            li
+                a(href="#{site_url}about") About

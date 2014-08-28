@@ -17,3 +17,7 @@ UI.registerHelper("current_order", function () {
     'use strict';
     return Orders.findOne(Session.get("order_id"));
 });
+
+UI.registerHelper("site_url", function () {
+    return Meteor.absoluteUrl();
+});
