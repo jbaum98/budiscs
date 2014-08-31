@@ -20,7 +20,7 @@ body {} .modal-body {
     height:100%;
 }
 #welcome {
-    background-color: #0000A3;
+    background-color: #5D9CEC;
 }
 .full {
     padding: 50px;
@@ -28,17 +28,8 @@ body {} .modal-body {
     width: 100%;
     margin: 0;
 }
-#recipient_name_div {
-    -webkit-transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-    transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-}
-.hidden {
-    opacity: 0
-}
-.explain {
-    text-decoration: underline;
-    color: blue;
-    font-size: 80%
+#new_order {
+    background-color:#ED5565;
 }
 #discs {
     display: flex;

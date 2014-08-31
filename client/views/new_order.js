@@ -38,7 +38,7 @@ Template.new_order.events({
                     });
                     //console.log(result);
                 } else {
-                    console.log(error);
+                    
                 }
             });
         } else {
@@ -73,42 +73,16 @@ Template.new_order.events({
         $('#new_order_form').submit();
     }
 });
-setUp = function () { // so can be called once activeSale is subscribed
-    Deps.autorun(function () { // keeps discs_cache same length as colors by appending zeroes
-            var disc_count = Sales.findOne({active: true}).colors.length, cache;
-            Session.setDefault('discs_cache', []);
-            for (var i = 0; i < disc_count; i++) {
-                var current_cache = Session.get('discs_cache')
-                if (current_cache.length <= i) {
-                    Session.set('discs_cache', current_cache.concat([0]));
-                }
-            }
-            cache = Session.get('discs_cache');
-            if (cache.length > disc_count) {
-                Session.set('discs_cache', cache.slice(0,disc_count));
-                
-            }
-    });
-    
-    Deps.autorun(function() { //update discs_cache when order_id is updated
-        var id = Session.get('order_id')
-        if (id) {
-            Session.set('discs_cache',Orders.findOne(id).discs)
+
+Meteor.startup(function () {
+    Deps.autorun(function () { //display invalidation messages
+        var keys = OrdersSchema.namedContext().invalidKeys();
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i].name;
+                message = OrdersSchema.namedContext().keyErrorMessage(key),
+                el = $("input#"+key);
+            el.before('<div style="display:none"><small>' + message +'</small></div>');
+            el.parent().find("div[style='display:none']").show({ effect: "blind", duration: 200})
         }
-    });
-    
-    Template.new_order.discs = function () {
-        'use strict';
-        var discs = [],
-            colors = Sales.findOne({active: true}).colors,
-            nums = Session.get('discs_cache');
-        for (var i = 0; i < colors.length; i++) {
-            discs.push({
-                color: colors[i],
-                num: nums[i],
-                index: i
-            });
-        }
-        return discs;
-    };
-}
+    })
+})

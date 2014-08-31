@@ -4,8 +4,9 @@ template(name='new_order')
             .form-group
                 label(for='name') Name:
                 input#name.form-control(type='text', placeholder='Your name' value='#{name}')
-                input#picking_up(type='checkbox', checked='#picking_up')
-                | I will be picking up these discs
+                .checkbox
+                    input#picking_up(type='checkbox', checked='#picking_up')
+                    label(for='picking_up') I will be picking up these discs
             .form-group(style='display: none;')
                 label(for='recipient') Recipient Name:
                 input#recipient.form-control(type='text ', placeholder='The person picking up the discs' value='#{recipient}')
