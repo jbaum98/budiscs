@@ -17,7 +17,7 @@ body {} .modal-body {
     padding: 0;
     margin: 0;
     margin-bottom: 60px;
-    height:100%;
+    height: 100%;
 }
 #welcome {
     background-color: #5D9CEC;
@@ -29,7 +29,7 @@ body {} .modal-body {
     margin: 0;
 }
 #new_order {
-    background-color:#ED5565;
+    background-color: #ED5565;
 }
 #discs {
     display: flex;
@@ -37,31 +37,31 @@ body {} .modal-body {
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
-  
     margin: 0 auto;
     padding: 10px;
 }
 .disc_machine {
     height: 100%;
-    width: 100%; /*for child*/
-    
+    width: 100%;
+    /*for child*/
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: stretch;
 }
-.disc_machine > *{
+.disc_machine > * {
     max-height: 100%;
     width: 100%;
-    text-align:center;
+    text-align: center;
 }
-.plus, .minus {
-  width: 30%;
-  height:30%;
+.plus,
+.minus {
+    width: 30%;
+    height: 30%;
 }
 .disc {
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
 }
 rect:first-child:hover {
     fill: black;
