@@ -8,7 +8,7 @@ template(name='welcome')
                 h3 To check the status of an existing order, please visit the link in your confirmation email. Otherwise, please return when there is an active disc sale to place your order.
             else
                 h2 We are currently accepting orders for the
-                    span(dir='auto') {{active_sale.name}}
+                    span(dir='auto') {{active_sale.title}}
                     | disc sale.
                 button.btn.btn-default#place_order Place an order
         a(href='', data-toggle='modal', data-target='#loginModal') Admin login

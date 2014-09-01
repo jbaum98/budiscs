@@ -7,7 +7,6 @@ standard-app-packages
 coffeescript
 less
 mizzao:bootstrap-3
-waitingkuo:jade
 aldeed:collection2
 meteorhacks:fast-render
 accounts-base
@@ -18,4 +17,5 @@ accounts-google
 accounts-twitter
 iron:router
 meteorhacks:kadira
+cryptoquick:jade
 
