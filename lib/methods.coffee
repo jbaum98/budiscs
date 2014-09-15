@@ -8,8 +8,8 @@ Meteor.methods
         Sales.update {active: true}, {$set: {active: false} }, {multi: true}
         return
 
-    checkDuplicateOrder: (name, bunk, sale_id) ->
+    isDuplicate: (name, bunk, sale_id) ->
         Orders.find({ $and: [{name: name}, {bunk: bunk}, {sale_id: sale_id}] },
             fields:
                 _id: 1
-        ).count() < 1
+        ).count() > 0

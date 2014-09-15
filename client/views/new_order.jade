@@ -3,25 +3,28 @@ template(name='new_order')
         form.col-md-6#new_order_form(role='form')
             .form-group
                 label(for='name') Name:
-                small.errors(for='name')
+                +errors(key="name")
                 input#name.form-control(type='text', placeholder='Your name' value='{{name}}')
                 .checkbox
                     input#picking_up(type='checkbox', checked='#picking_up')
                     label(for='picking_up') I will be picking up these discs
             .form-group(style='display: none;')
                 label(for='recipient') Recipient Name:
-                small.errors(for='recipient')
+                +errors(key="recipient")
                 input#recipient.form-control(type='text ', placeholder='The person picking up the discs' value='{{recipient}}')
             .form-group
                 label(for='bunk') Bunk:
-                small.errors(for='bunk')
+                +errors(key="bunk")
                 input#bunk.form-control(type='text', placeholder='Your bunk' value='{{bunk}}')
         #discs.col-md-6
-            small.errors(for='name')
+            +errors(key="discs")
             each discs
                 +disc_svg(this)
         button.btn.btn-default(type='submit') Submit
 
+template(name='errors')
+    .errors(for='{{key}}') 
+        small 
 
 template(name='disc_svg')
     .disc_machine(data-index='{{index}}')
